@@ -47,7 +47,8 @@ class ASHCollectionViewController: UICollectionViewController {
         let navController = UINavigationController(rootViewController: settingsVC)
         navController.modalPresentationStyle = .pageSheet
         if let sheet = navController.sheetPresentationController {
-            sheet.detents = [.medium()]
+            sheet.detents = [.large()]
+            sheet.selectedDetentIdentifier = .large
             sheet.prefersGrabberVisible = true
         }
         

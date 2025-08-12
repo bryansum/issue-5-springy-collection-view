@@ -42,7 +42,7 @@ class SpringSettingsViewController: UIViewController {
         // Title
         let titleLabel = UILabel()
         titleLabel.text = "Spring Settings"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
@@ -129,74 +129,59 @@ class SpringSettingsViewController: UIViewController {
         buttonStack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(buttonStack)
         
-        // Done button
-        let doneButton = UIButton(type: .system)
-        doneButton.setTitle("Done", for: .normal)
-        doneButton.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        doneButton.backgroundColor = UIColor.systemBlue
-        doneButton.setTitleColor(.white, for: .normal)
-        doneButton.layer.cornerRadius = 12
-        doneButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
-        doneButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(doneButton)
         
         // Layout constraints
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            dampingTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
+            dampingTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
             dampingTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
             dampingLabel.topAnchor.constraint(equalTo: dampingTitleLabel.topAnchor),
             dampingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            dampingSlider.topAnchor.constraint(equalTo: dampingTitleLabel.bottomAnchor, constant: 8),
+            dampingSlider.topAnchor.constraint(equalTo: dampingTitleLabel.bottomAnchor, constant: 6),
             dampingSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             dampingSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            frequencyTitleLabel.topAnchor.constraint(equalTo: dampingSlider.bottomAnchor, constant: 30),
+            frequencyTitleLabel.topAnchor.constraint(equalTo: dampingSlider.bottomAnchor, constant: 20),
             frequencyTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
             frequencyLabel.topAnchor.constraint(equalTo: frequencyTitleLabel.topAnchor),
             frequencyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            frequencySlider.topAnchor.constraint(equalTo: frequencyTitleLabel.bottomAnchor, constant: 8),
+            frequencySlider.topAnchor.constraint(equalTo: frequencyTitleLabel.bottomAnchor, constant: 6),
             frequencySlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             frequencySlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            resistanceTitleLabel.topAnchor.constraint(equalTo: frequencySlider.bottomAnchor, constant: 30),
+            resistanceTitleLabel.topAnchor.constraint(equalTo: frequencySlider.bottomAnchor, constant: 20),
             resistanceTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
             resistanceLabel.topAnchor.constraint(equalTo: resistanceTitleLabel.topAnchor),
             resistanceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            resistanceSlider.topAnchor.constraint(equalTo: resistanceTitleLabel.bottomAnchor, constant: 8),
+            resistanceSlider.topAnchor.constraint(equalTo: resistanceTitleLabel.bottomAnchor, constant: 6),
             resistanceSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             resistanceSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            presetsLabel.topAnchor.constraint(equalTo: resistanceSlider.bottomAnchor, constant: 40),
+            presetsLabel.topAnchor.constraint(equalTo: resistanceSlider.bottomAnchor, constant: 24),
             presetsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
-            buttonStack.topAnchor.constraint(equalTo: presetsLabel.bottomAnchor, constant: 12),
+            buttonStack.topAnchor.constraint(equalTo: presetsLabel.bottomAnchor, constant: 10),
             buttonStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             buttonStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            buttonStack.heightAnchor.constraint(equalToConstant: 44),
-            
-            doneButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            doneButton.widthAnchor.constraint(equalToConstant: 120),
-            doneButton.heightAnchor.constraint(equalToConstant: 48)
+            buttonStack.heightAnchor.constraint(equalToConstant: 36)
         ])
     }
     
     private func createPresetButton(title: String, action: Selector) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .medium)
         button.backgroundColor = UIColor.systemBlue
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 6
         button.addTarget(self, action: action, for: .touchUpInside)
         return button
     }
@@ -262,7 +247,4 @@ class SpringSettingsViewController: UIViewController {
         notifyDelegate()
     }
     
-    @objc private func donePressed() {
-        dismiss(animated: true)
-    }
 }
