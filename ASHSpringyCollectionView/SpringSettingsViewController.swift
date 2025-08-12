@@ -223,15 +223,15 @@ class SpringSettingsViewController: UIViewController {
     }
     
     @objc private func iMessagePreset() {
-        setValues(damping: 0.3, frequency: 2.5, resistance: 800.0)
+        setValues(damping: 0.6, frequency: 1.8, resistance: 1200.0)
     }
     
     @objc private func bouncyPreset() {
-        setValues(damping: 0.1, frequency: 3.0, resistance: 500.0)
+        setValues(damping: 0.4, frequency: 2.2, resistance: 1000.0)
     }
     
     @objc private func stiffPreset() {
-        setValues(damping: 0.95, frequency: 0.5, resistance: 3000.0)
+        setValues(damping: 0.9, frequency: 0.8, resistance: 2000.0)
     }
     
     private func setValues(damping: CGFloat, frequency: CGFloat, resistance: CGFloat) {
