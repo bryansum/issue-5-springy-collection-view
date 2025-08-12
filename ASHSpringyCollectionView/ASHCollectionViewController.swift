@@ -18,6 +18,40 @@ class ASHCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ASHCollectionViewController.CellIdentifier)
         self.collectionView.backgroundColor = UIColor.white
+        
+        // Add settings button
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.title = "Springy Collection"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Settings",
+            style: .plain,
+            target: self,
+            action: #selector(showSettings)
+        )
+    }
+    
+    @objc private func showSettings() {
+        let settingsVC = SpringSettingsViewController()
+        settingsVC.delegate = self
+        
+        // Get current values from layout
+        if let layout = collectionViewLayout as? ASHSpringyCollectionViewFlowLayout {
+            settingsVC.currentDamping = layout.springDamping
+            settingsVC.currentFrequency = layout.springFrequency
+            settingsVC.currentResistance = layout.scrollResistanceDivisor
+        }
+        
+        let navController = UINavigationController(rootViewController: settingsVC)
+        navController.modalPresentationStyle = .pageSheet
+        if let sheet = navController.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersGrabberVisible = true
+        }
+        
+        present(navController, animated: true)
     }
     
     // MARK: - UICollectionViewDataSource Methods
@@ -32,5 +66,17 @@ class ASHCollectionViewController: UICollectionViewController {
         cell.backgroundColor = UIColor.orange
         
         return cell
+    }
+}
+
+// MARK: - SpringSettingsDelegate
+
+extension ASHCollectionViewController: SpringSettingsDelegate {
+    func settingsDidChange(damping: CGFloat, frequency: CGFloat, resistance: CGFloat) {
+        if let layout = collectionViewLayout as? ASHSpringyCollectionViewFlowLayout {
+            layout.springDamping = damping
+            layout.springFrequency = frequency
+            layout.scrollResistanceDivisor = resistance
+        }
     }
 }

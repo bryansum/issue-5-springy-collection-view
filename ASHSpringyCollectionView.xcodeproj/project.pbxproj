@@ -10,6 +10,7 @@
 		ASH001 /* ASHAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ASH002 /* ASHAppDelegate.swift */; };
 		ASH003 /* ASHCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ASH004 /* ASHCollectionViewController.swift */; };
 		ASH005 /* ASHSpringyCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ASH006 /* ASHSpringyCollectionViewFlowLayout.swift */; };
+		ASH008 /* SpringSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ASH009 /* SpringSettingsViewController.swift */; };
 		5EB0A31117B965C400708DD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB0A31017B965C400708DD3 /* Foundation.framework */; };
 		5EB0A31317B965C400708DD3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB0A31217B965C400708DD3 /* CoreGraphics.framework */; };
 		5EB0A31517B965C400708DD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB0A31417B965C400708DD3 /* UIKit.framework */; };
@@ -23,6 +24,7 @@
 		ASH004 /* ASHCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASHCollectionViewController.swift; sourceTree = "<group>"; };
 		ASH006 /* ASHSpringyCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASHSpringyCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		ASH007 /* ASHSpringyCollectionView-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASHSpringyCollectionView-Bridging-Header.h"; sourceTree = "<group>"; };
+		ASH009 /* SpringSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringSettingsViewController.swift; sourceTree = "<group>"; };
 		5EB0A30D17B965C400708DD3 /* ASHSpringyCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASHSpringyCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB0A31017B965C400708DD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5EB0A31217B965C400708DD3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,6 +85,7 @@
 				ASH002 /* ASHAppDelegate.swift */,
 				ASH004 /* ASHCollectionViewController.swift */,
 				ASH006 /* ASHSpringyCollectionViewFlowLayout.swift */,
+				ASH009 /* SpringSettingsViewController.swift */,
 				ASH007 /* ASHSpringyCollectionView-Bridging-Header.h */,
 				5EB0A32217B965C400708DD3 /* Images.xcassets */,
 				5EB0A31717B965C400708DD3 /* Supporting Files */,
@@ -168,6 +171,7 @@
 				5EB0A31D17B965C400708DD3 /* main.m in Sources */,
 				ASH001 /* ASHAppDelegate.swift in Sources */,
 				ASH005 /* ASHSpringyCollectionViewFlowLayout.swift in Sources */,
+				ASH008 /* SpringSettingsViewController.swift in Sources */,
 				ASH003 /* ASHCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,7 +221,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -248,7 +252,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

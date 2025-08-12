@@ -21,6 +21,11 @@ class ASHSpringyCollectionViewFlowLayout: UICollectionViewFlowLayout {
     private var visibleIndexPathsSet: NSMutableSet!
     private var latestDelta: CGFloat = 0
     
+    // Configurable spring parameters
+    var springDamping: CGFloat = 0.8
+    var springFrequency: CGFloat = 1.0
+    var scrollResistanceDivisor: CGFloat = 1500.0
+    
     override init() {
         super.init()
         
@@ -91,14 +96,14 @@ class ASHSpringyCollectionViewFlowLayout: UICollectionViewFlowLayout {
             let springBehaviour = UIAttachmentBehavior(item: item, attachedToAnchor: center)
             
             springBehaviour.length = 0.0
-            springBehaviour.damping = 0.8
-            springBehaviour.frequency = 1.0
+            springBehaviour.damping = springDamping
+            springBehaviour.frequency = springFrequency
             
             // If our touchLocation is not (0,0), we'll need to adjust our item's center "in flight"
             if !touchLocation.equalTo(CGPoint.zero) {
                 let yDistanceFromTouch = abs(touchLocation.y - springBehaviour.anchorPoint.y)
                 let xDistanceFromTouch = abs(touchLocation.x - springBehaviour.anchorPoint.x)
-                let scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / 1500.0
+                let scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / scrollResistanceDivisor
                 
                 var newCenter = center
                 if self.latestDelta < 0 {
@@ -136,7 +141,7 @@ class ASHSpringyCollectionViewFlowLayout: UICollectionViewFlowLayout {
             if let springBehaviour = behavior as? UIAttachmentBehavior {
                 let yDistanceFromTouch = abs(touchLocation.y - springBehaviour.anchorPoint.y)
                 let xDistanceFromTouch = abs(touchLocation.x - springBehaviour.anchorPoint.x)
-                let scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / 1500.0
+                let scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / scrollResistanceDivisor
                 
                 if let item = springBehaviour.items.first as? UICollectionViewLayoutAttributes {
                     var center = item.center
