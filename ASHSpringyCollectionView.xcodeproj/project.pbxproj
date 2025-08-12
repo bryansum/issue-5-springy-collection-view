@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ASH001 /* ASHAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ASH002 /* ASHAppDelegate.swift */; };
+		ASH003 /* ASHCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ASH004 /* ASHCollectionViewController.swift */; };
+		ASH005 /* ASHSpringyCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ASH006 /* ASHSpringyCollectionViewFlowLayout.swift */; };
 		5EB0A31117B965C400708DD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB0A31017B965C400708DD3 /* Foundation.framework */; };
 		5EB0A31317B965C400708DD3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB0A31217B965C400708DD3 /* CoreGraphics.framework */; };
 		5EB0A31517B965C400708DD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB0A31417B965C400708DD3 /* UIKit.framework */; };
@@ -19,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ASH002 /* ASHAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASHAppDelegate.swift; sourceTree = "<group>"; };
+		ASH004 /* ASHCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASHCollectionViewController.swift; sourceTree = "<group>"; };
+		ASH006 /* ASHSpringyCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASHSpringyCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		ASH007 /* ASHSpringyCollectionView-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASHSpringyCollectionView-Bridging-Header.h"; sourceTree = "<group>"; };
 		5EB0A30D17B965C400708DD3 /* ASHSpringyCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASHSpringyCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB0A31017B965C400708DD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5EB0A31217B965C400708DD3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,12 +89,10 @@
 		5EB0A31617B965C400708DD3 /* ASHSpringyCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				5EB0A31F17B965C400708DD3 /* ASHAppDelegate.h */,
-				5EB0A32017B965C400708DD3 /* ASHAppDelegate.m */,
-				5EB0A34217B9664D00708DD3 /* ASHCollectionViewController.h */,
-				5EB0A34317B9664D00708DD3 /* ASHCollectionViewController.m */,
-				5EB0A33F17B9663900708DD3 /* ASHSpringyCollectionViewFlowLayout.h */,
-				5EB0A34017B9663900708DD3 /* ASHSpringyCollectionViewFlowLayout.m */,
+				ASH002 /* ASHAppDelegate.swift */,
+				ASH004 /* ASHCollectionViewController.swift */,
+				ASH006 /* ASHSpringyCollectionViewFlowLayout.swift */,
+				ASH007 /* ASHSpringyCollectionView-Bridging-Header.h */,
 				5EB0A32217B965C400708DD3 /* Images.xcassets */,
 				5EB0A31717B965C400708DD3 /* Supporting Files */,
 			);
@@ -170,9 +175,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EB0A31D17B965C400708DD3 /* main.m in Sources */,
-				5EB0A32117B965C400708DD3 /* ASHAppDelegate.m in Sources */,
-				5EB0A34117B9663900708DD3 /* ASHSpringyCollectionViewFlowLayout.m in Sources */,
-				5EB0A34417B9664D00708DD3 /* ASHCollectionViewController.m in Sources */,
+				ASH001 /* ASHAppDelegate.swift in Sources */,
+				ASH005 /* ASHSpringyCollectionViewFlowLayout.swift in Sources */,
+				ASH003 /* ASHCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +273,8 @@
 				GCC_PREFIX_HEADER = "ASHSpringyCollectionView/ASHSpringyCollectionView-Prefix.pch";
 				INFOPLIST_FILE = "ASHSpringyCollectionView/ASHSpringyCollectionView-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ASHSpringyCollectionView/ASHSpringyCollectionView-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -282,6 +289,8 @@
 				GCC_PREFIX_HEADER = "ASHSpringyCollectionView/ASHSpringyCollectionView-Prefix.pch";
 				INFOPLIST_FILE = "ASHSpringyCollectionView/ASHSpringyCollectionView-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ASHSpringyCollectionView/ASHSpringyCollectionView-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

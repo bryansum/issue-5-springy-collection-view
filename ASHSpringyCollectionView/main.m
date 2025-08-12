@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "ASHAppDelegate.h"
+#import "ASHSpringyCollectionView-Swift.h"
 
 int main(int argc, char * argv[])
 {
