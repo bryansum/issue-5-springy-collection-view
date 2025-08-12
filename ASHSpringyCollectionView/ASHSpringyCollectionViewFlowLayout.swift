@@ -65,8 +65,8 @@ class ASHSpringyCollectionViewFlowLayout: UICollectionViewFlowLayout {
         
         let itemsIndexPathsInVisibleRectSet = Set(itemsInVisibleRectArray.map { $0.indexPath })
         
-        // Step 1: Remove any behaviours that are no longer visible.
-        let noLongerVisibleBehaviours = self.dynamicAnimator.behaviors.filter { behavior in
+        // Step 1: Remove any behaviors that are no longer visible.
+        let noLongerVisibleBehaviors = self.dynamicAnimator.behaviors.filter { behavior in
             guard let attachmentBehavior = behavior as? UIAttachmentBehavior,
                   let item = attachmentBehavior.items.first as? UICollectionViewLayoutAttributes else {
                 return false
@@ -75,7 +75,7 @@ class ASHSpringyCollectionViewFlowLayout: UICollectionViewFlowLayout {
             return !currentlyVisible
         }
         
-        for behavior in noLongerVisibleBehaviours {
+        for behavior in noLongerVisibleBehaviors {
             if let attachmentBehavior = behavior as? UIAttachmentBehavior,
                let item = attachmentBehavior.items.first as? UICollectionViewLayoutAttributes {
                 self.dynamicAnimator.removeBehavior(behavior)
@@ -83,7 +83,7 @@ class ASHSpringyCollectionViewFlowLayout: UICollectionViewFlowLayout {
             }
         }
         
-        // Step 2: Add any newly visible behaviours.
+        // Step 2: Add any newly visible behaviors.
         // A "newly visible" item is one that is in the itemsInVisibleRect(Set|Array) but not in the visibleIndexPathsSet
         let newlyVisibleItems = itemsInVisibleRectArray.filter { item in
             return !self.visibleIndexPathsSet.contains(item.indexPath)
@@ -93,16 +93,16 @@ class ASHSpringyCollectionViewFlowLayout: UICollectionViewFlowLayout {
         
         for item in newlyVisibleItems {
             let center = item.center
-            let springBehaviour = UIAttachmentBehavior(item: item, attachedToAnchor: center)
+            let springBehavior = UIAttachmentBehavior(item: item, attachedToAnchor: center)
             
-            springBehaviour.length = 0.0
-            springBehaviour.damping = springDamping
-            springBehaviour.frequency = springFrequency
+            springBehavior.length = 0.0
+            springBehavior.damping = springDamping
+            springBehavior.frequency = springFrequency
             
             // If our touchLocation is not (0,0), we'll need to adjust our item's center "in flight"
             if !touchLocation.equalTo(CGPoint.zero) {
-                let yDistanceFromTouch = abs(touchLocation.y - springBehaviour.anchorPoint.y)
-                let xDistanceFromTouch = abs(touchLocation.x - springBehaviour.anchorPoint.x)
+                let yDistanceFromTouch = abs(touchLocation.y - springBehavior.anchorPoint.y)
+                let xDistanceFromTouch = abs(touchLocation.x - springBehavior.anchorPoint.x)
                 let scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / scrollResistanceDivisor
                 
                 var newCenter = center
@@ -114,7 +114,7 @@ class ASHSpringyCollectionViewFlowLayout: UICollectionViewFlowLayout {
                 item.center = newCenter
             }
             
-            self.dynamicAnimator.addBehavior(springBehaviour)
+            self.dynamicAnimator.addBehavior(springBehavior)
             self.visibleIndexPathsSet.add(item.indexPath)
         }
     }
@@ -138,12 +138,12 @@ class ASHSpringyCollectionViewFlowLayout: UICollectionViewFlowLayout {
         let touchLocation = collectionView.panGestureRecognizer.location(in: collectionView)
         
         for behavior in self.dynamicAnimator.behaviors {
-            if let springBehaviour = behavior as? UIAttachmentBehavior {
-                let yDistanceFromTouch = abs(touchLocation.y - springBehaviour.anchorPoint.y)
-                let xDistanceFromTouch = abs(touchLocation.x - springBehaviour.anchorPoint.x)
+            if let springBehavior = behavior as? UIAttachmentBehavior {
+                let yDistanceFromTouch = abs(touchLocation.y - springBehavior.anchorPoint.y)
+                let xDistanceFromTouch = abs(touchLocation.x - springBehavior.anchorPoint.x)
                 let scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / scrollResistanceDivisor
                 
-                if let item = springBehaviour.items.first as? UICollectionViewLayoutAttributes {
+                if let item = springBehavior.items.first as? UICollectionViewLayoutAttributes {
                     var center = item.center
                     if delta < 0 {
                         center.y += max(delta, delta * scrollResistance)
